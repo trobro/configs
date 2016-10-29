@@ -192,9 +192,9 @@ nnoremap <C-L> :nohl<CR><C-L>
 set background=dark
 set t_Co=256
 set statusline&
-hi statusline ctermfg=25 ctermbg=15
-au InsertEnter * hi statusline ctermfg=92 ctermbg=15
-au InsertLeave * hi statusline ctermfg=25 ctermbg=15
+hi statusline ctermfg=25 ctermbg=231
+au InsertEnter * hi statusline ctermfg=34 ctermbg=231
+au InsertLeave * hi statusline ctermfg=25 ctermbg=231
 
 set autoread
 " Trigger autoread when changing buffers.
