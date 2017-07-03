@@ -212,6 +212,7 @@ nmap <Leader>gr :GrepInFiles
 nmap <Leader>gy :GrepInFiles <C-R>"<CR>
 
 nmap <silent> <C-N> :NERDTreeToggle<CR>
+nmap <Leader>nf :NERDTreeFind<CR>
 
 nmap <Leader>q :Bdelete<CR>
 let g:buffergator_viewport_split_policy = "T"
@@ -220,6 +221,8 @@ let g:buffergator_show_full_directory_path = 0
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_by_filename = 0
 let g:ctrlp_regexp = 1
+
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'c', 'h', 'cpp', 'hpp'] }
 
 let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_always_populate_loc_list = 1
@@ -235,7 +238,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:go_list_type = "quickfix"
 
 nmap <Leader>r :GoBuild<CR>
