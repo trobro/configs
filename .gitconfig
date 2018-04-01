@@ -1,0 +1,13 @@
+[color]
+  ui = auto
+[core]
+  whitespace = cr-at-eol
+[push]
+  default = simple
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  rh = reset --hard @{upstream}
+  l = log --pretty='%C(auto)commit %H%nAuthor: %cn <%ce>%nDate:   %ai%n%n    %s%n' --graph
+  lo = log --pretty='%C(auto)commit %H%nAuthor: %cn <%ce>%nDate:   %ai%n%n    %s%n' --graph @{upstream}
