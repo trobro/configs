@@ -241,3 +241,5 @@ let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:go_list_type = "quickfix"
 
 nmap <Leader>r :GoBuild<CR>
+
+set conceallevel=0
