@@ -21,6 +21,7 @@ Plugin 'fatih/vim-go'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'moll/vim-bbye'
 Plugin 'vim-scripts/repmo.vim'
+Plugin 'hjson/vim-hjson'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -108,8 +109,8 @@ set hlsearch
 " use is very much a personal preference, but they are harmless.
 
 " Use case insensitive search, except when using capital letters
-set ignorecase
-set smartcase
+"set ignorecase
+"set smartcase
 
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
@@ -199,11 +200,13 @@ au InsertLeave * hi statusline ctermfg=25 ctermbg=231
 set autoread
 " Trigger autoread when changing buffers.
 au BufEnter * :silent! !
+" Save the session every time a file is saved
+autocmd BufWritePre * mksession! ~/Session.vim
 
 let mapleader = ","
 nmap <Leader>w <C-W>
 
-command! MyMake silent make | copen | redraw!
+command! MyMake silent make! | copen | redraw!
 nmap <Leader>mk :MyMake <CR>
 
 command! -nargs=1 GrepInFiles execute 'silent lgrep! <q-args> . -FRIn --exclude-dir={.git,.svn,bower_components,node_modules,Godeps,compiled,assembled,vendor,fonts} --exclude=*{sv-SE.po,en-GB.js,en-SE.js,sv-SE.js,zu-ZA.js,en-SE_general_source.js,*.min.js,*.min.css}' | lopen | redraw!
@@ -222,9 +225,10 @@ let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_by_filename = 0
 let g:ctrlp_regexp = 1
 
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'c', 'h', 'cpp', 'hpp'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'c', 'h', 'cpp', 'hpp', 'html'] }
 
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 " let g:syntastic_always_populate_loc_list = 1
 
 " add go vim plugins
@@ -237,9 +241,11 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:go_list_type = "quickfix"
 
 nmap <Leader>r :GoBuild<CR>
 
-set conceallevel=0
+if has("conceal")
+  " do not hide double quotes in JSON files
+  autocmd FileType * setlocal conceallevel=0
+endif
