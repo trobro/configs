@@ -206,6 +206,7 @@ autocmd BufWritePre * mksession! ~/Session.vim
 let mapleader = ","
 nmap <Leader>w <C-W>
 
+command! FormatJson silent %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=2)"
 command! MyMake silent make! | copen | redraw!
 nmap <Leader>mk :MyMake <CR>
 
