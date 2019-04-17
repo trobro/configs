@@ -18,6 +18,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'kien/ctrlp.vim'
 Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
+Plugin 'godoctor/godoctor.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'moll/vim-bbye'
 Plugin 'vim-scripts/repmo.vim'
@@ -256,5 +257,5 @@ nmap <Leader>gs :GoSameIds<CR>
 
 if has("conceal")
   " do not hide double quotes in JSON files
-  autocmd FileType * setlocal conceallevel=0
+  autocmd FileType json setlocal conceallevel=0
 endif
