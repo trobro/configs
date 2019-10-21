@@ -12,7 +12,9 @@ alias ll='ls -alFhG'
 #export PS1="\h:\w$ "
 export PS1="\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 
-gr() { grep "$1" . -RIn --exclude-dir={.git,.svn,bower_components,node_modules,Godeps,i18n,assembled}
+gr() {
+  grep "$1" . -RIn --exclude-dir={.git,.svn,bower_components,node_modules,Godeps,i18n,assembled}
+}
 
 pidpath() { lsof -p $1 -Fn | awk 'NR==2{print}' | sed "s/n\//\//"; }
 
@@ -26,9 +28,12 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/trobro/Applications/google-cloud-sdk/path.bash.inc'
+if [ -f '/Users/trobro/Applications/google-cloud-sdk/path.bash.inc' ]; then
+  # The next line updates PATH for the Google Cloud SDK.
+  source '/Users/trobro/Applications/google-cloud-sdk/path.bash.inc'
+fi
 
-# The next line enables shell command completion for gcloud.
-source '/Users/trobro/Applications/google-cloud-sdk/completion.bash.inc'
-
+if [ -f '/Users/trobro/Applications/google-cloud-sdk/completion.bash.inc' ]; then
+  # The next line enables shell command completion for gcloud.
+  source '/Users/trobro/Applications/google-cloud-sdk/completion.bash.inc'
+fi
