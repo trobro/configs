@@ -222,6 +222,8 @@ nmap <Leader>gy :GrepInFiles <C-R>"<CR>
 
 nmap <silent> <C-N> :NERDTreeToggle<CR>
 nmap <Leader>nf :NERDTreeFind<CR>
+let NERDTreeQuitOnOpen = 1
+let g:NERDTreeNotificationThreshold = 500
 
 nmap <Leader>q :Bdelete<CR>
 let g:buffergator_viewport_split_policy = "T"
