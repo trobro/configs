@@ -23,10 +23,10 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'moll/vim-bbye'
 Plugin 'vim-scripts/repmo.vim'
 Plugin 'hjson/vim-hjson'
-Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
-Plugin 'shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
+" Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
+" Plugin 'shougo/deoplete.nvim'
+" Plugin 'roxma/nvim-yarp'
+" Plugin 'roxma/vim-hug-neovim-rpc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -233,7 +233,7 @@ let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_by_filename = 0
 let g:ctrlp_regexp = 1
 
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'c', 'h', 'cpp', 'hpp', 'html'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'c', 'h', 'cpp', 'hpp', 'html', 'php'] }
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
@@ -242,7 +242,7 @@ let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 " add go vim plugins
 set rtp+=$GOROOT/misc/vim
 
-call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
+" call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -250,8 +250,8 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:deoplete#enable_at_startup = 1
-let g:go_fmt_command = "goimports_local.sh"
+" let g:deoplete#enable_at_startup = 1
+" let g:go_fmt_command = "goimports_local.sh"
 let g:go_list_type = "quickfix"
 
 nmap <Leader>r :GoBuild<CR>
