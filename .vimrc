@@ -215,6 +215,8 @@ command! FormatJson silent %!python -c "import json, sys, collections; print jso
 command! MyMake silent make! | copen | redraw!
 nmap <Leader>mk :MyMake <CR>
 
+" Single quotes must be typed twice in the search string. Example:
+" popup(''skuld'')
 command! -nargs=1 GrepInFiles execute 'silent lgrep! <q-args> . -FRIn --exclude-dir={.git,.svn,bower_components,node_modules,Godeps,compiled,assembled,vendor,fonts} --exclude=*{sv-SE.po,en-GB.js,en-SE.js,sv-SE.js,zu-ZA.js,en-SE_general_source.js,*.min.js,*.min.css}' | lopen | redraw!
 
 nmap <Leader>gr :GrepInFiles 
