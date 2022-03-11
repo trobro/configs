@@ -1,8 +1,6 @@
 export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
 export GOPATH=~/go
-
-alias vi=/usr/local/bin/vim
-alias vim=/usr/local/bin/vim
 
 alias grep='LC_ALL=C grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -12,28 +10,30 @@ alias ll='ls -alFhG'
 #export PS1="\h:\w$ "
 export PS1="\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 
-gr() {
-  grep "$1" . -RIn --exclude-dir={.git,.svn,bower_components,node_modules,Godeps,i18n,assembled}
-}
-
-pidpath() { lsof -p $1 -Fn | awk 'NR==2{print}' | sed "s/n\//\//"; }
-
+eval "$(/opt/homebrew/bin/brew shellenv)"
+gr() { grep "$1" . -RIn --exclude-dir={*im*,.git,.svn}; }
 export EDITOR=vim
+export VISUAL=vim
+export TERM=xterm-256color
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
+# bash-completion@1 for Bash 3
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-if [ -f '/Users/trobro/Applications/google-cloud-sdk/path.bash.inc' ]; then
+# bash-completion@2 for Bash 4 and newer
+[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+
+if [ -f '~/google-cloud-sdk/path.bash.inc' ]; then
   # The next line updates PATH for the Google Cloud SDK.
-  source '/Users/trobro/Applications/google-cloud-sdk/path.bash.inc'
+  source '~/google-cloud-sdk/path.bash.inc'
 fi
 
-if [ -f '/Users/trobro/Applications/google-cloud-sdk/completion.bash.inc' ]; then
+if [ -f '~/google-cloud-sdk/completion.bash.inc' ]; then
   # The next line enables shell command completion for gcloud.
-  source '/Users/trobro/Applications/google-cloud-sdk/completion.bash.inc'
+  source '~/google-cloud-sdk/completion.bash.inc'
 fi

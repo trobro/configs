@@ -2,6 +2,8 @@
   ui = auto
 [core]
   whitespace = cr-at-eol
+  excludesfile = ~/.gitignore
+  autocrlf = false
 [push]
   default = simple
 [receive]
