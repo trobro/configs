@@ -23,6 +23,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'moll/vim-bbye'
 Plugin 'vim-scripts/repmo.vim'
 Plugin 'hjson/vim-hjson'
+Plugin 'leafgarland/typescript-vim'
 " Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
 " Plugin 'shougo/deoplete.nvim'
 " Plugin 'roxma/nvim-yarp'
@@ -70,7 +71,6 @@ filetype plugin indent on    " required
 
 " Enable syntax highlighting
 syntax on
-
 
 "------------------------------------------------------------
 " Must have options {{{1
@@ -218,7 +218,7 @@ nmap <Leader>mk :MyMake <CR>
 
 " Single quotes must be typed twice in the search string. Example:
 " popup(''skuld'')
-command! -nargs=1 GrepInFiles execute 'silent lgrep! <q-args> . -FRIn --exclude-dir={.git,.svn,bower_components,node_modules,Godeps,compiled,assembled,vendor,fonts} --exclude=*{sv-SE.po,en-GB.js,en-SE.js,sv-SE.js,zu-ZA.js,en-SE_general_source.js,*.min.js,*.min.css}' | lopen | redraw!
+command! -nargs=1 GrepInFiles execute 'silent lgrep! <q-args> . -FRIn --exclude-dir={.git,.svn,bower_components,node_modules,Godeps,compiled,assembled,vendor,fonts,.next} --exclude=*{sv-SE.po,en-GB.js,en-SE.js,sv-SE.js,zu-ZA.js,en-SE_general_source.js,*.min.js,*.min.css}' | lopen | redraw!
 
 nmap <Leader>gr :GrepInFiles 
 nmap <Leader>gy :GrepInFiles <C-R>"<CR>
