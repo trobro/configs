@@ -223,6 +223,8 @@ command! -nargs=1 GrepInFiles execute 'silent lgrep! <q-args> . -FRIn --exclude-
 nmap <Leader>gr :GrepInFiles 
 nmap <Leader>gy :GrepInFiles <C-R>"<CR>
 
+nmap gr :GoReferrers<CR> :copen<CR>
+
 nmap <silent> <C-N> :NERDTreeToggle<CR>
 nmap <Leader>nf :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
