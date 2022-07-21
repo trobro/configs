@@ -256,11 +256,14 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 " let g:deoplete#enable_at_startup = 1
-" let g:go_fmt_command = "goimports_local.sh"
+let g:go_fmt_command = "gofmt"
+let g:go_imports_mode = 'goimports'
+let g:go_fmt_autosave = 1
+let g:go_imports_autosave = 0
 let g:go_list_type = "quickfix"
 
 nmap <Leader>r :GoBuild<CR>
-nmap <Leader>gs :GoSameIds<CR>
+nmap <Leader>gi :GoImports<CR>
 
 if has("conceal")
   " do not hide double quotes in JSON files
