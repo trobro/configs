@@ -13,6 +13,6 @@
   ci = commit
   co = checkout
   rh = reset --hard @{upstream}
-  l = log --pretty='%C(auto)commit %H%nAuthor: %cn <%ce>%nDate:   %ai%n%n    %s%n' --graph
-  lo = log --pretty='%C(auto)commit %H%nAuthor: %cn <%ce>%nDate:   %ai%n%n    %s%n' --graph @{upstream}
+  l = log --pretty='%C(auto)commit %H %d%nAuthor: %an <%ce>%nDate:   %ai%n%n    %s%n' --graph
+  lo = log --pretty='%C(auto)commit %H %d%nAuthor: %an <%ce>%nDate:   %ai%n%n    %s%n' --graph @{upstream}
   pf = push --force-with-lease
