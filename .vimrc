@@ -182,6 +182,8 @@ set expandtab
 "set shiftwidth=2
 set tabstop=2
 
+" Avoid bold keywords in code.
+set t_md=
 
 "------------------------------------------------------------
 " Mappings {{{1
@@ -207,7 +209,7 @@ set autoread
 " Trigger autoread when changing buffers.
 au BufEnter * :silent! !
 " Save the session every time a file is saved
-autocmd BufWritePre * mksession! ~/Session.vim
+" autocmd BufWritePre * mksession! ~/Session.vim
 
 let mapleader = ","
 nmap <Leader>w <C-W>
