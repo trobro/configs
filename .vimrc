@@ -212,27 +212,27 @@ au BufEnter * :silent! !
 " autocmd BufWritePre * mksession! ~/Session.vim
 
 let mapleader = ","
-nmap <Leader>w <C-W>
+nnoremap <Leader>w <C-W>
 
 command! FormatJson silent %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=2)"
 command! MyMake silent make! | copen | redraw!
-nmap <Leader>mk :MyMake <CR>
+nnoremap <Leader>mk :MyMake <CR>
 
 " Single quotes must be typed twice in the search string. Example:
 " popup(''skuld'')
 command! -nargs=1 GrepInFiles execute 'silent lgrep! <q-args> . -FRIn --exclude-dir={.git,.svn,bower_components,node_modules,Godeps,compiled,assembled,vendor,fonts,.next} --exclude=*{sv-SE.po,en-GB.js,en-SE.js,sv-SE.js,zu-ZA.js,en-SE_general_source.js,*.min.js,*.min.css}' | lopen | redraw!
 
-nmap <Leader>gr :GrepInFiles 
-nmap <Leader>gy :GrepInFiles <C-R>"<CR>
+nnoremap <Leader>gr :GrepInFiles 
+nnoremap <Leader>gy :GrepInFiles <C-R>"<CR>
 
-nmap gr :GoReferrers<CR> :copen<CR>
+nnoremap gr :GoReferrers<CR> :copen<CR>
 
-nmap <silent> <C-N> :NERDTreeToggle<CR>
-nmap <Leader>nf :NERDTreeFind<CR>
+nnoremap <silent> <C-N> :NERDTreeToggle<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 let g:NERDTreeNotificationThreshold = 500
 
-nmap <Leader>q :Bdelete<CR>
+nnoremap <Leader>q :Bdelete<CR>
 let g:buffergator_viewport_split_policy = "T"
 let g:buffergator_show_full_directory_path = 0
 
@@ -264,8 +264,8 @@ let g:go_fmt_autosave = 1
 let g:go_imports_autosave = 0
 let g:go_list_type = "quickfix"
 
-nmap <Leader>r :GoBuild<CR>
-nmap <Leader>gi :GoImports<CR>
+nnoremap <Leader>r :GoBuild<CR>
+nnoremap <Leader>gi :GoImports<CR>
 
 if has("conceal")
   " do not hide double quotes in JSON files
