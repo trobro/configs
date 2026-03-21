@@ -47,7 +47,8 @@ on run {input, parameters}
 		if it is not running then
 			set myTab to (do script command in window 1)
 		else
-			set myTab to (do script command)
+			set myTab to do script
+			do script command in front window
 		end if
 		activate
 	end tell
