@@ -10,7 +10,7 @@ alias ll='ls -alFhG'
 #export PS1="\h:\w$ "
 export PS1="\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv bash)"
 gr() { grep "$1" . -RIn --exclude-dir={*im*,.git,.svn}; }
 export EDITOR=vim
 export VISUAL=vim
