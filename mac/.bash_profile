@@ -7,6 +7,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias ls='ls -G'
 alias ll='ls -alFhG'
+alias rsync="rsync --exclude '._*' --exclude '.DS*'"
 #export PS1="\h:\w$ "
 export PS1="\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 
