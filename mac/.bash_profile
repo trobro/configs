@@ -29,6 +29,10 @@ fi
 # bash-completion@2 for Bash 4 and newer
 [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
+if [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash ]; then
+  . /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
+fi
+
 if [ -f '~/google-cloud-sdk/path.bash.inc' ]; then
   # The next line updates PATH for the Google Cloud SDK.
   source '~/google-cloud-sdk/path.bash.inc'
