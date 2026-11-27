@@ -275,3 +275,26 @@ if has("conceal")
   " do not hide double quotes in JSON files
   autocmd FileType json setlocal conceallevel=0
 endif
+
+function! s:NoBold() abort
+  let changed = []
+  for g in hlget()
+    let modified = 0
+    for key in ['term', 'cterm', 'gui']
+      if has_key(g, key) && get(g[key], 'bold', 0)
+        call remove(g[key], 'bold')
+        let modified = 1
+      endif
+    endfor
+    if modified
+      call add(changed, g)
+    endif
+  endfor
+  call hlset(changed)
+endfunction
+
+augroup NoBold
+  autocmd!
+  autocmd ColorScheme * call s:NoBold()
+augroup END
+call s:NoBold()
